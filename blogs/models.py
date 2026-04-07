@@ -11,11 +11,12 @@ class Category(models.Model):
 
 
 STATUS_CHOICES = (
-    ('draft', 'Draft'),
-    ('published', 'Published'),
+    (0, 'Draft'),
+    (1, 'Published')
 )
 
-class BLog(models.Model):
+
+class Blog(models.Model):
     title= models.CharField(max_length=200)
     slug= models.SlugField(max_length=200, unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
